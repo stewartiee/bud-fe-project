@@ -1,0 +1,20 @@
+// Only include the font weights we need.
+@use "~inter-ui/default" as inter-ui with (
+	$inter-font-path: "~inter-ui/Inter (web latin)"
+);
+@include inter-ui.weight-400;
+@include inter-ui.weight-600;
+
+html {
+    font-family: "Inter", "system-ui";
+    font-size: 14px;
+}
+
+@supports (font-variation-settings: normal) {
+    html { font-family: "Inter var", "system-ui"; }
+}
+
+body {
+    background: #F6F8FC;
+    margin: 0;
+}

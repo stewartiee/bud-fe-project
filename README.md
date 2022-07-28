@@ -1,2 +1,3 @@
-# bud-fe-project
-Technical Test
+# Bud - Front End Technical Test
+
+Utilises React, Webpack, Styled Components and Jest.

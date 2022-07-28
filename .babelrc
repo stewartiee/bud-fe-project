@@ -1,0 +1,26 @@
+{
+  "plugins": [
+    "babel-plugin-styled-components",
+    [
+      "babel-plugin-root-import",
+      {
+        "paths": [
+          {
+            "rootPathSuffix": "./src/feature",
+            "rootPathPrefix": "~/feature"
+          },
+          {
+            "rootPathSuffix": "./src/libs",
+            "rootPathPrefix": "~/libs"
+          }
+        ]
+      }
+    ]
+  ],
+  "presets": [
+    ["@babel/preset-react", {
+      "runtime": "automatic"
+    }],
+    "@babel/preset-env"
+  ]
+}

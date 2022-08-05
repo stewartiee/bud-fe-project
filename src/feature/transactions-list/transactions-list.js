@@ -23,12 +23,7 @@ export default function TransactionsList({ offset = 0, limit = 10 }) {
         // Fetch the transaction data from the API.
         fetchTransactions()
             .then((result) => {
-                if (result?.status === 'success') {
-                    setTransactionData(result?.data.transactions);
-                } else {
-                    setErrorState(result?.message);
-                }
-
+                setTransactionData(result.transactions);
                 setLoadingState(false);
             })
             .catch((error) => {

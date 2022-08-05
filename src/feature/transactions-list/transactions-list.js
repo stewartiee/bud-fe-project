@@ -42,7 +42,7 @@ export default function TransactionsList({ offset = 0, limit = 10 }) {
         return (
             transactionData
                 // Filter out income transactions as these aren't relevant to the outgoings.
-                .filter(({ category_title }) => category_title !== 'Income')
+                .filter(({ amount: {value} }) => value < 0)
                 // Sort the transactions to show from least to greatest for amount.
                 .sort((a, b) => {
                     return b.amount.value - a.amount.value;
@@ -59,7 +59,7 @@ export default function TransactionsList({ offset = 0, limit = 10 }) {
     ) : transactionData ? (
         <List>
             {sortedTransactions.map((item) => (
-                <ListItem key={item?.id} item={item} />
+                <ListItem key={item.id} item={item} />
             ))}
         </List>
     ) : null;

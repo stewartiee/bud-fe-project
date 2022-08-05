@@ -31,12 +31,12 @@ const TransactionMetaData = styled.p`
     margin: 0.25em 0;
 `;
 
-export const ListItem = ({ item }) => {
+export const ListItem = ({ item: {category_title, description, amount} }) => {
     // Substitute spaces, and convert to lowercase
-    const slug = item?.category_title?.replaceAll(' ', '-').toLowerCase();
+    const slug = category_title?.replaceAll(' ', '-').toLowerCase();
     const currencyOutput = formatCurrency(
-        item?.amount?.value,
-        item?.amount?.currency_iso
+        amount?.value,
+        amount?.currency_iso
     );
 
     return (
@@ -44,13 +44,13 @@ export const ListItem = ({ item }) => {
             <ListImage category={slug} />
             <div>
                 <TransactionHeading tabIndex={0}>
-                    {item?.description}
+                    {description}
                 </TransactionHeading>
                 <TransactionMetaData
-                    aria-label={`Category: ${item?.category_title}`}
+                    aria-label={`Category: ${category_title}`}
                     tabIndex={0}
                 >
-                    {item?.category_title}
+                    {category_title}
                 </TransactionMetaData>
             </div>
             <div>
